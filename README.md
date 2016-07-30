@@ -4,7 +4,9 @@ A simple HTTP server hosting a key-value store
 Uses LevelDB via Plyvel as the backend, and Flask for HTTP serving and routing.
 
 ## Usage
-Run `http-kvstore.py --port <port number> --db </path/to/leveldb/directory>`
+Run `http-kvstore.py -d </path/to/leveldb/directory>`
+
+Optional flag: `-p <port>` to select a different port number for HTTP server (default: 4832)
 
 The LevelDB directory will be created and initialised if it does not exist.
 
@@ -12,7 +14,7 @@ The LevelDB directory will be created and initialised if it does not exist.
 ### Get
 Retrieve a stored `value` by querying against a `key` using HTTP GET:
 ```
-curl -X GET http://kvstore-url:4832/get/<keyname>
+curl -X GET http://kvstore-url:4832/get/<key>
 ```
 Value is returned in a HTTP 200 response. 
 
